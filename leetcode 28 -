@@ -1,0 +1,21 @@
+find string inside string -class Solution {
+    public int strStr(String haystack, String needle) {
+        if(needle.length()==0) return 0;
+        
+        int right=0;
+        while(right<=haystack.length()-needle.length()){
+            int ind =0;
+            while(ind<needle.length()){
+                if(needle.charAt(ind)!=haystack.charAt(right+ind)){
+                    break;
+                }
+                ind++;
+            }
+            if(ind==needle.length()){
+                return right;
+            }
+            right++;
+        }
+        return -1;
+    }
+}
