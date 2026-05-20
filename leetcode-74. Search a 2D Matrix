@@ -1,0 +1,56 @@
+import java.util.*;
+public class Main{
+
+public static void main(String args[]){
+	
+	System.out.println("please enter the number you want to check in matrix ");
+	Scanner sc = new Scanner(System.in);
+	int target = sc.nextInt();
+	System.out.println("please enter matrix with first defining row and col size and than entering number one by one progressively");
+	int n = sc.nextInt();
+	int m = sc.nextInt();
+	int mat[][]= new int[n][m];
+	for(int i=0;i<n;i++){
+	for(int j=0;j<m;j++){
+	mat[i][j] = sc.nextInt();
+	}}
+	//creating a sample int for first testing the binary search algo ,will update the code later ,
+
+	int matrix[][] = {{1,2,3},{4,5,6},{7,8,9},{10,11,12}};
+	int k=5;
+	sol(matrix,k);}
+
+public static void sol(int mat[][],int k){
+	int m=mat.length-1;
+	int n=mat[0].length-1;
+	int row=0;
+	while(row<=m){
+	int mid = row+ (m-row)/2;
+	if(k>= mat[mid][0] && k<= mat[mid][n]){
+	// sol exist in this row
+	helper(mat,k,mid);
+	return;}
+
+		else if(k< mat[mid][0]) {
+		m=mid-1;}
+	else row = mid+1;
+}}
+
+public static void helper(int mat[][],int k,int mid){
+	int n=mat[0].length-1;
+	int col=0;
+	while(col<=n){
+	int colmid=col+(n-col)/2;
+	if(mat[mid][colmid]==k){
+	// sol exist 
+	System.out.print("found the sol");
+	return;}
+
+		else if(k <mat[mid][colmid]) {
+		n=colmid-1;}
+	else col = colmid+1;
+}
+}
+
+// Main -class ends here
+}
